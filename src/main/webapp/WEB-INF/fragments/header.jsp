@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: gantushig
-  Date: 5/10/20
-  Time: 1:33 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -41,23 +36,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">SOLID.</a>
+            <a class="navbar-brand" href="#">JOB SEARCH</a>
         </div>
-        <div class="navbar-collapse collapse navbar-right">
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="blog.html">BLOG</a></li>
-                        <li><a href="single-post.html">SINGLE POST</a></li>
-                        <li><a href="portfolio.html">PORTFOLIO</a></li>
-                        <li><a href="single-project.html">SINGLE PROJECT</a></li>
+
+
+        <c:choose>
+            <c:when test="${sessionScope.get('loggedUser')!=null}">
+                <div class="navbar-collapse collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="home">HOME</a></li>
+                        <li><a href="about">ABOUT</a></li>
+                        <li><a href="search">SEARCH</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Welcome ${sessionScope.get('loggedUser').firstName} ${sessionScope.get('loggedUser').lastName}
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="logout">LOGOUT</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="navbar-collapse collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="home">HOME</a></li>
+                        <li><a href="about">ABOUT</a></li>
+                        <li><a href="search">SEARCH</a></li>
+                        <li><a href="login">LOGIN</a></li>
+                    </ul>
+                </div>
+            </c:otherwise>
+        </c:choose>
+
     </div>
 </div>
