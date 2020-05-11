@@ -5,6 +5,8 @@
   Time: 1:33 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -44,9 +46,10 @@
             <a class="navbar-brand" href="index.html">SOLID.</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" id="navbarMenu">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="about.html">ABOUT</a></li>
+                <li><a href="login">LOGIN</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
@@ -58,6 +61,7 @@
                     </ul>
                 </li>
             </ul>
+
         </div>
     </div>
 </div>
