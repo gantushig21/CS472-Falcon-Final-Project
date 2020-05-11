@@ -1,9 +1,9 @@
-package edu.miu.cs472.falcon.model;
+package edu.miu.cs.cs472.falcon.model;
 
 import java.util.Objects;
 
 public class User {
-    private static int userId=0;
+    private static int userId = 0;
     private String firstName;
     private String lastName;
     private String email;
@@ -22,6 +22,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.gender = gender;
+        this.setRole("ROLE_USER");
     }
 
     public int getUserId() {
@@ -100,6 +101,15 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, email, username, password);
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        sb.append(getUserId()+", "+getFirstName()+ ", "+ getLastName()+", "+ getEmail()+", "+getGender());
+        sb.append("]");
+        return sb.toString();
     }
 
 }
