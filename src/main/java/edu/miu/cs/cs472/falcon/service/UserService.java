@@ -7,11 +7,11 @@ import java.util.List;
 
 public class UserService {
 
-    public static void registerUser(User user) {
+    public void registerUser(User user) {
         UserRepository.registerUser(user);
     }
 
-    public static List<User> getUsers() {
+    public List<User> getUsers() {
         return UserRepository.getUsers();
     }
 

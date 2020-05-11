@@ -27,13 +27,13 @@ public class RegisterController extends HttpServlet {
         String password = request.getParameter("password");
         String gender = request.getParameter("gender");
         UserService userService = new UserService();
-        //try{
+        try{
             User user = new User(firstName, lastName, email, username, password, gender);
             userService.registerUser(user);
             System.out.println(UserRepository.getUsers());
             response.sendRedirect("login");
-       // }catch (Exception e){
-       //     e.printStackTrace();
-       // }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

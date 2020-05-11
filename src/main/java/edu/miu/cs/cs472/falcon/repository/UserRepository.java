@@ -15,11 +15,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UserRepository {
-    private static List<User> dataStore = List.of(
-            new User("Tom", "Bolt", "ubolt@email.com", "tom", "123456","no"),
-            new User("Ali", "Mohamed", "amohd@email.com", "ali", "123","yes"),
-            new User("Carly", "Jeffery", "carly@onemail.nike", "carly", "carly","yes")
-    );
+    private static List<User> dataStore = new ArrayList<>(Arrays.asList(
+            new User("Tom", "Bolt", "ubolt@email.com", "tom", "123456","Male"),
+            new User("Ali", "Mohamed", "amohd@email.com", "ali", "123","Male"),
+            new User("Anna", "Jeffery", "carly@onemail.nike", "anna", "568","Female")
+    ));
 
     public static List<User> getUsers() {
         return dataStore;
@@ -28,4 +28,5 @@ public class UserRepository {
     public static void registerUser(User user){
         UserRepository.dataStore.add(user);
     }
+
 }
