@@ -18,7 +18,7 @@ public class UserRepository {
     private static List<User> dataStore = List.of(
             new User("Tom", "Bolt", "ubolt@email.com", "tom", "123456","no"),
             new User("Ali", "Mohamed", "amohd@email.com", "ali", "123","yes"),
-            new User("Carly", "Jeffery", "carly@onemail.nike", "carly@onemail.nike", "carly","yes")
+            new User("Carly", "Jeffery", "carly@onemail.nike", "carly", "carly","yes")
     );
 
     public static List<User> getUsers() {
