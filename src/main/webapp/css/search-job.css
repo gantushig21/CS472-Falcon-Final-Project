@@ -1,0 +1,17 @@
+.search-job-container {
+    display: flex;
+    min-height: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-job-container form {
+    display: block;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .search-job-container form {
+        max-width: 900px;
+    }
+}
