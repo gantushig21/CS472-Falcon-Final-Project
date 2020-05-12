@@ -19,11 +19,15 @@ public class SecurityFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
-
+        String cssURI = request.getContextPath() + "/css";
+        String jsURI = request.getContextPath() + "/js";
+        String imgURI = request.getContextPath() + "/img";
+        String libURI = request.getContextPath() + "/lib";
         String staticResourcesURI = request.getContextPath() + "/fragments";
         String loginURI = request.getContextPath() + "/login";
         String homeURI = request.getContextPath() + "/home";
         String registerURI = request.getContextPath() + "/register";
+        String aboutURI = request.getContextPath() + "/about-us";
         String searchURI = request.getContextPath() + "/search";
 
         boolean loggedIn = session != null && session.getAttribute("loggedUser") != null;
@@ -31,6 +35,11 @@ public class SecurityFilter implements Filter {
                 || request.getRequestURI().contains(registerURI)
                 || request.getRequestURI().contains(searchURI)
                 || request.getRequestURI().contains(homeURI)
+                || request.getRequestURI().contains(cssURI)
+                || request.getRequestURI().contains(jsURI)
+                || request.getRequestURI().contains(libURI)
+                || request.getRequestURI().contains(imgURI)
+                || request.getRequestURI().contains(aboutURI)
                 || request.getRequestURI().contains(staticResourcesURI);
 
         if (loggedIn || loginRequest) {

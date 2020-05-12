@@ -30,9 +30,15 @@ public class RegisterController extends HttpServlet {
         UserService userService = new UserService();
         try{
             User user = new User(firstName, lastName, email, username, password, gender, phone);
-            userService.registerUser(user);
-            System.out.println(UserRepository.getUsers());
-            response.sendRedirect("login");
+            if(UserRepository.isExistingUser(user)){
+                String errorMessage = "<span style='color:red;font-size:1em'> Existing user !!!</span>";
+                request.setAttribute("errMsg", errorMessage);
+                request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request, response);
+            }else {
+                userService.registerUser(user);
+                System.out.println(UserRepository.getUsers());
+                response.sendRedirect("login");
+            }
         }catch (Exception e){
             e.printStackTrace();
         }

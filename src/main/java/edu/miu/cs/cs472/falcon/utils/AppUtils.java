@@ -1,4 +1,4 @@
-package edu.miu.cs.cs472.falcon.util;
+package edu.miu.cs.cs472.falcon.utils;
 
 import edu.miu.cs.cs472.falcon.model.User;
 

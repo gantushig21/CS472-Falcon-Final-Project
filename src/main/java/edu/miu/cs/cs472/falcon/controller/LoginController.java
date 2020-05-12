@@ -2,7 +2,7 @@ package edu.miu.cs.cs472.falcon.controller;
 
 import edu.miu.cs.cs472.falcon.model.User;
 import edu.miu.cs.cs472.falcon.service.LoginService;
-import edu.miu.cs.cs472.falcon.util.AppUtils;
+import edu.miu.cs.cs472.falcon.utils.AppUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
