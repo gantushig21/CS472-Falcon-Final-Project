@@ -57,11 +57,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="${pageContext.request.contextPath}/home">HOME</a></li>
                         <li><a href="${pageContext.request.contextPath}/about">ABOUT</a></li>
-                        <li><a href="${pageContext.request.contextPath}/posts">POST JOB</a></li>
-                        <li class="dropdown">
-                            <a href="${pageContext.request.contextPath}/logout" class="dropdown-toggle" data-toggle="dropdown">
-                                Welcome ${sessionScope.get('loggedUser').firstName}, LOGOUT</a>
-                            </a>
+                        <li><a href="${pageContext.request.contextPath}/jobs?action=add">POST JOB</a></li>
+                        <li class="dropdown">Welcome ${sessionScope.get('loggedUser').firstName}
+                            <a href="${pageContext.request.contextPath}/logout">LOGOUT</a>
                         </li>
                     </ul>
                 </div>
@@ -71,7 +69,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="${pageContext.request.contextPath}/home">HOME</a></li>
                         <li><a href="${pageContext.request.contextPath}/about">ABOUT</a></li>
-                        <li><a href="${pageContext.request.contextPath}/posts">POST JOB</a></li>
+                        <li><a href="${pageContext.request.contextPath}/jobs?action=add">POST JOB</a></li>
                         <li><a href="${pageContext.request.contextPath}/login">LOGIN</a></li>
                     </ul>
                 </div>
