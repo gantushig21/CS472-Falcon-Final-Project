@@ -32,6 +32,9 @@ BLUE WRAP
     <div class="row">
       <div class="col-lg-offset-3">
         <h4>Register</h4>
+          <div class="error-msg">
+              <%= (request.getAttribute("errMsg")==null?' ':request.getAttribute("errMsg"))%>
+          </div>
         <form class="contact-form" role="form" action="register" method="POST" style="width: 500px">
             <div class="form-group">
                 <input type="text" name="firstName" class="form-control" id="firstName" placeholder="firstName" required >
@@ -54,6 +57,10 @@ BLUE WRAP
               <div class="validate"></div>
             </div>
             <div class="form-group">
+                <input type="text" name="phone" class="form-control" id="phone" placeholder="phone" required pattern="">
+                <div class="validate"></div>
+            </div>
+            <div class="form-group">
                 <label>*Gender</label><br/>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="male" value="Male" <%= (request.getParameter("gender")!=null && request.getParameter("gender").equals("Male")?"checked":"")%> >
@@ -68,7 +75,7 @@ BLUE WRAP
 
             <div class="loading"></div>
             <div class="error-message"></div>
-            <div class="sent-message">Registered. Thank you!</div>
+            <div class="sent-message"></div>
 
             <div class="form-send">
               <button type="submit" class="btn btn-large">Save</button>

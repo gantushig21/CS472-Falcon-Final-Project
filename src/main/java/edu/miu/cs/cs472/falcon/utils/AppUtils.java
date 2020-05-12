@@ -1,4 +1,4 @@
-package edu.miu.cs.cs472.falcon.util;
+package edu.miu.cs.cs472.falcon.utils;
 
 import edu.miu.cs.cs472.falcon.model.User;
 
@@ -21,26 +21,5 @@ public class AppUtils {
         return loggedUser;
     }
 
-    public static String getRedirectAfterLoginUrl(HttpSession session, int redirectId) {
-        String url = id_uri_map.get(redirectId);
-        if (url != null) {
-            return url;
-        }
-        return null;
-    }
-
-    public static int storeRedirectAfterLoginUrl(HttpSession session, String requestUri) {
-        Integer id = uri_id_map.get(requestUri);
-
-        if (id == null) {
-            id = REDIRECT_ID++;
-
-            uri_id_map.put(requestUri, id);
-            id_uri_map.put(id, requestUri);
-            return id;
-        }
-
-        return id;
-    }
 }
 
