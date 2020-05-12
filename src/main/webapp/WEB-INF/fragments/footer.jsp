@@ -8,14 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div id="footerwrap" data-toggle="collapse" data-target="#navbar-footer">
+<div id="footerwrap">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
                 <h4>About</h4>
                 <div class="hline-w"></div>
-                <p>CS472 WAP Project<br/>
-                    Team02 Falcon<br/></p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
             </div>
             <div class="col-lg-4">
                 <h4>Social Links</h4>
@@ -32,24 +31,23 @@
                 <h4>Our Address</h4>
                 <div class="hline-w"></div>
                 <p>
-                    1000 N 4th Street, Fairfield, IA 52557
+                    Some Ave, 987,<br/> 52557, New York,<br/> United States.<br/>
                 </p>
             </div>
 
         </div>
     </div>
 </div>
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="lib/php-mail-form/validate.js"></script>
-<script src="lib/prettyphoto/js/prettyphoto.js"></script>
-<script src="lib/isotope/isotope.min.js"></script>
-<script src="lib/hover/hoverdir.js"></script>
-<script src="lib/hover/hoverex.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/lib/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/lib/php-mail-form/validate.js"></script>
+<script src="${pageContext.request.contextPath}/lib/prettyphoto/js/prettyphoto.js"></script>
+<script src="${pageContext.request.contextPath}/lib/isotope/isotope.min.js"></script>
+<script src="${pageContext.request.contextPath}/lib/hover/hoverdir.js"></script>
+<script src="${pageContext.request.contextPath}/lib/hover/hoverex.min.js"></script>
 
+<script src="${pageContext.request.contextPath}/js/main.js"></script>
 
 </body>
-
 </html>

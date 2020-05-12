@@ -1,35 +1,65 @@
 package edu.miu.cs.cs472.falcon.repository;
 
 import com.opencsv.CSVReader;
+import edu.miu.cs.cs472.falcon.model.Contact;
 import edu.miu.cs.cs472.falcon.model.Job;
 
-import java.io.File;
 import java.io.FileReader;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class JobRepo {
     private static List<Job> jobs = new ArrayList<>();
+    private static HashMap<String, Job> jobMap = new HashMap<>();
 
-    public static List<Job> getJobs() {
-        if (jobs.size() > 0)
-            return jobs;
+    static {
+        readData();
+    }
 
+    public JobRepo() {
+    }
+
+    public Job getJobById(String id) {
+        return jobMap.get(id);
+    }
+
+    public List<Job> getJobs(String q, String location) {
+        List<Job> list = jobs.stream()
+                            .filter(j -> {
+                                return (j.getSkills().toLowerCase().indexOf(q) > -1 ||
+                                        j.getTitle().toLowerCase().indexOf(q) > -1 ||
+                                        j.getCompany().toLowerCase().indexOf(q) > -1) &&
+                                        (j.getLocation().toLowerCase().indexOf(location) > -1);
+                            })
+                            .sorted(Comparator.comparing(Job::getPostDate).reversed())
+                            .collect(Collectors.toList());
+
+        return list;
+    }
+
+    public static void readData() {
         try {
-            FileReader fileReader = new FileReader("src/main/resources/dice_com-job_us_sample.csv");
+            FileReader fileReader = new FileReader("/Users/gantushig/IdeaProjects/CS472-Falcon-Final-Project/src/main/resources/dice_com-job_us_sample.csv");
             CSVReader csvReader = new CSVReader(fileReader);
 
             String[] record;
             int i = 0;
-            while ((record = csvReader.readNext()) != null && i++ < 10) {
-                jobs.add(new Job(record[0], record[1], record[2], new Date(), record[4], record[5], record[6], record[7]));
+            csvReader.readNext();
+            Contact contact = new Contact("Will Smith", "(202) 435-6613", "smith@gmail.com");
+            while ((record = csvReader.readNext()) != null) {
+                Job newJob = new Job(record[1], record[2], record[3], record[5], record[6], new Date(), record[8], record[10], contact);
+                addJob(newJob);
             }
         }
         catch (Exception ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
-        return jobs;
+    }
+
+
+
+    public static void addJob(Job job) {
+        jobs.add(job);
+        jobMap.put(job.getId(), job);
     }
 }
