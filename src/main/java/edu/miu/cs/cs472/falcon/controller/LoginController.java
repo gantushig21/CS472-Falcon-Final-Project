@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
             User user = loginService.getUserByUserName(userName);
             System.out.println(user.getRole());
             AppUtils.storeLoggedUser(session, user);
-            response.sendRedirect("users");
+            response.sendRedirect("home");
         } else {
             String errorMessage = "<span style='color:red;font-size:1em'> Invalid UserName/Password !!!</span>";
             request.setAttribute("errMsg", errorMessage);
