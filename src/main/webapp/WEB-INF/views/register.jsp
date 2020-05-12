@@ -38,27 +38,27 @@ LOGIN FORMS
             </div>
             <form class="contact-form" role="form" action="register" method="POST">
                 <div class="form-group">
-                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name" required>
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name" required pattern=".{3,}">
                     <div class="validate"></div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last Name" required>
+                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last Name" required pattern=".{3,}">
                     <div class="validate"></div>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                     <div class="validate"></div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="username" class="form-control" id="username" placeholder="User Name" required pattern="">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="User Name" required pattern=".{4,}" title="Eight or more characters">
                     <div class="validate"></div>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required pattern="">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
                     <div class="validate"></div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone" required pattern="">
+                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone e.g. 515-717-1315 " required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                     <div class="validate"></div>
                 </div>
                 <div class="form-group">
