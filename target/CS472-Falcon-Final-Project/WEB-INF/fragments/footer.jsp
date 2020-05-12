@@ -31,7 +31,7 @@
                 <h4>Our Address</h4>
                 <div class="hline-w"></div>
                 <p>
-                    1000 N 4th St, Fairfield,<br/> IA 52557,<br/> United States.<br/>
+                    Some Ave, 987,<br/> 52557, New York,<br/> United States.<br/>
                 </p>
             </div>
 

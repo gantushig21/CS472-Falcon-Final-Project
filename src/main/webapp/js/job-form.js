@@ -99,7 +99,7 @@ function addJob(e) {
     const data = {};
     $('#add-job-form').serializeArray().map(x => {data[x.name] = x.value;});
 
-    const url = "jobs";
+    const url = "posts";
 
     $.ajax({
         url,
