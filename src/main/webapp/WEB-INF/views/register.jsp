@@ -32,6 +32,9 @@ BLUE WRAP
     <div class="row">
       <div class="col-lg-offset-3">
         <h4>Register</h4>
+          <div class="error-msg">
+              <%= (request.getAttribute("errMsg")==null?' ':request.getAttribute("errMsg"))%>
+          </div>
         <form class="contact-form" role="form" action="register" method="POST" style="width: 500px">
             <div class="form-group">
                 <input type="text" name="firstName" class="form-control" id="firstName" placeholder="firstName" required >
