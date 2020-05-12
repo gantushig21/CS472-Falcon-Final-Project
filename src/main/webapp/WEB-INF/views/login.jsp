@@ -29,8 +29,8 @@ BLUE WRAP
 	 ***************************************************************************************************************** -->
 
   <div class="container">
-    <div class="row">
-      <div class="col-lg-offset-4">
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div>
         <h4>Login</h4>
           <div class="error-msg">
               <%= (request.getAttribute("errMsg")==null?' ':request.getAttribute("errMsg"))%>
