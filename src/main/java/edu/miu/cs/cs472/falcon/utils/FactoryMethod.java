@@ -3,7 +3,15 @@ package edu.miu.cs.cs472.falcon.utils;
 import java.util.*;
 
 public class FactoryMethod {
-    private static LinkedList<String> ids = new LinkedList<>();
+    private static final LinkedList<String> ids = new LinkedList<>();
+
+    static {
+        init();
+    }
+
+    private static void init() {
+        generateIds();
+    }
 
     public static void generateIds() {
         char[] ch = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
@@ -24,7 +32,10 @@ public class FactoryMethod {
     }
 
     public static String getUniqueId() {
-        return ids.removeFirst();
+        if (ids.size() > 0) {
+            return ids.removeFirst();
+        }
+        return null;
     }
 
     public static boolean isEmpty(String str) {
@@ -41,5 +52,16 @@ public class FactoryMethod {
             return false;
         }
         return true;
+    }
+
+    public static String capitalizeFirstLetter(String str) {
+        String[] s = str.split("\\s+");
+
+        for (int i = 0; i < s.length; i++) {
+            s[i] = s[i].trim();
+            s[i] = s[i].substring(0, 1).toUpperCase() + s[i].substring(1);
+        }
+
+        return String.join(" ", s);
     }
 }

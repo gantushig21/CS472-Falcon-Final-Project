@@ -101,19 +101,22 @@ function addJob(e) {
 
     const url = "jobs";
 
-    console.log(data);
     $.ajax({
         url,
         type: 'POST',
-        // contentType: "application/json; charset=utf-8",
         dataType: 'json',
         data: data,
         success: function(response){
-            $('#addBook').trigger("reset");
-            document.getElementById("add-job-loading").style.display = "none";
-            showModal('Job post is added successful', 'success');
+            if (response.success) {
+                $('#add-job-form').trigger("reset");
+                document.getElementById("add-job-loading").style.display = "none";
+                showModal('Job post is added successful', 'success');
+            } else {
+                showModal('Please, fill out the required input fields', 'failed');
+            }
         },
         error: function(jqXHR) {
+            document.getElementById("add-job-loading").style.display = "none";
             let msg = "Something went wrong";
             if (jqXHR.status && jqXHR.status==400){
                 msg = jqXHR.responseText;
@@ -123,7 +126,7 @@ function addJob(e) {
     });
 }
 function showModal(msg, status) {
-    const booksListBtn = document.getElementById("booksListModal");
+    const booksListBtn = document.getElementById("homePageModal");
     if (status == 'success') {
         booksListBtn.style.display = "inline-block";
     } else {
@@ -137,7 +140,7 @@ function showModal(msg, status) {
 function startModal() {
     const modal = document.getElementById("myModal");
 
-    const booksListBtn = document.getElementById("booksListModal");
+    const booksListBtn = document.getElementById("homePageModal");
     const okayBtn = document.getElementById("okayModal");
 
     if (booksListBtn) {
@@ -159,7 +162,7 @@ function startModal() {
 }
 
 $(function () {
-    const states = ["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"];
+    const states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
 
     autocomplete(document.getElementById("add-job-state"), states);
 

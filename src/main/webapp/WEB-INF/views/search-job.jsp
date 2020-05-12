@@ -12,31 +12,38 @@
     <c:param name="title" value="Find a Job" />
 </c:import>
 
-<div class="container mtb">
+<div class="search-background">
+
+<div class="container mtb" style="padding-bottom: 80px; margin-top: 70px; margin-bottom: 0;">
     <div class="search-job-container">
-        <form action="jobs" method="get">
-            <input type="hidden" name="action" value="list">
-            <input type="hidden" name="page" value="1">
-            <input type="hidden" name="limit" value="5">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="q" placeholder="Job title, skills or company">
+        <div style="width: 100%;">
+            <h2 style="margin-bottom: 30px;">Make your dreams a Reality</h2>
+            <form action="jobs" method="get">
+                <input type="hidden" name="action" value="list">
+                <input type="hidden" name="page" value="1">
+                <input type="hidden" name="limit" value="5">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="q" placeholder="Job title, skills or company">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="location" placeholder="City or state">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-send">
+                            <button type="submit" class="btn btn-large btn-theme" style="margin-top: 0">Find Jobs</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="location" placeholder="City or state">
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-send">
-                        <button type="submit" class="btn btn-large btn-theme" style="margin-top: 0">Find Jobs</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+</div>
+
 
 <c:import url="../fragments/footer.jsp" />

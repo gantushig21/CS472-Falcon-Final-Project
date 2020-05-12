@@ -5,6 +5,25 @@
     align-items: center;
 }
 
+.search-background {
+    position: relative;
+}
+
+.search-background:after {
+    background-image: url('../img/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
 .search-job-container form {
     display: block;
     width: 100%;

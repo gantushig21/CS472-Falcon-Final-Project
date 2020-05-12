@@ -22,7 +22,6 @@ public class SecurityFilter implements Filter {
 
     }
 
-
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response= (HttpServletResponse) servletResponse;
@@ -70,7 +69,6 @@ public class SecurityFilter implements Filter {
         }
 
         filterChain.doFilter(wrapRequest, response);
-
     }
 
 

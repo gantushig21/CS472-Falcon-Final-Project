@@ -5,7 +5,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import edu.miu.cs.cs472.falcon.model.Contact;
 import edu.miu.cs.cs472.falcon.model.Job;
+import edu.miu.cs.cs472.falcon.model.User;
 import edu.miu.cs.cs472.falcon.service.JobService;
+import edu.miu.cs.cs472.falcon.service.LocationService;
 import edu.miu.cs.cs472.falcon.utils.FactoryMethod;
 
 import javax.servlet.ServletException;
@@ -24,7 +26,7 @@ public class JobServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String company = request.getParameter("company-name");
         String title = request.getParameter("title");
-        String state = request.getParameter("title");
+        String state = request.getParameter("state");
         String city = request.getParameter("city");
         String skills = request.getParameter("skills");
         String status = request.getParameter("job-status");
@@ -34,24 +36,31 @@ public class JobServlet extends HttpServlet {
         String recruiterPhoneNumber = request.getParameter("recruiter-phone");
         String recruiterEmail = request.getParameter("recruiter-email");
 
-        Job newJob = new Job(
-                company.trim(),
-                status.trim(),
-                description.trim(),
-                (city + " " + state).trim(),
-                title.trim(),
-                new Date(), "",
-                skills.trim(),
-                new Contact(recruiterName, recruiterPhoneNumber, recruiterEmail));
+        JsonObject myObj = new JsonObject();
+        if (FactoryMethod.isEmpty(company) || FactoryMethod.isEmpty(title) || FactoryMethod.isEmpty(state) || FactoryMethod.isEmpty(city) ||
+            FactoryMethod.isEmpty(skills) || FactoryMethod.isEmpty(status) || FactoryMethod.isEmpty(description) || FactoryMethod.isEmpty(recruiterName) ||
+            FactoryMethod.isEmpty(recruiterPhoneNumber) || FactoryMethod.isEmpty(recruiterEmail)) {
+            myObj.addProperty("success", false);
+        } else {
 
-        JobService.addJob(newJob);
+//        System.out.println(company + " " + title + " " + state + " " + city + " " + skills + " " + status + " " + description + " " + recruiterName + " " + recruiterPhoneNumber + " " + recruiterEmail);
 
-        System.out.println(newJob);
+            Job newJob = new Job(
+                    company.trim(),
+                    status.trim(),
+                    description.trim(),
+                    (city + ", " + LocationService.getShortState(state)).trim(),
+                    title.trim(),
+                    new Date(), "",
+                    skills.trim(),
+                    new Contact(recruiterName, recruiterPhoneNumber, recruiterEmail));
 
+            JobService.addJob(newJob);
+            System.out.println(newJob);
+            myObj.addProperty("success", true);
+        }
         PrintWriter out = response.getWriter();
 
-        JsonObject myObj = new JsonObject();
-        myObj.addProperty("success", true);
         out.println(myObj.toString());
         out.close();
     }
@@ -93,6 +102,8 @@ public class JobServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/views/job.jsp").forward(request, response);
                 break;
             case "add":
+                Contact contact = new Contact("Tony Stark", "(202) 555-1234", "stark@gmail.com");
+                request.setAttribute("contact", contact);
                 request.getRequestDispatcher("/WEB-INF/views/add-job.jsp").forward(request, response);
                 break;
             case "search":

@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import edu.miu.cs.cs472.falcon.service.JobService;
+import edu.miu.cs.cs472.falcon.service.LocationService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +24,7 @@ public class CitiesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search = request.getParameter("search");
 
-        List<String> list = JobService.getCities(search);
+        List<String> list = LocationService.getCities(search);
 
         PrintWriter out = response.getWriter();
         response.setContentType("text/html;charset=UTF-8");
@@ -39,3 +40,4 @@ public class CitiesServlet extends HttpServlet {
         out.close();
     }
 }
+

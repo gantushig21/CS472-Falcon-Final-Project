@@ -2,6 +2,7 @@ package edu.miu.cs.cs472.falcon.service;
 
 import edu.miu.cs.cs472.falcon.model.Job;
 import edu.miu.cs.cs472.falcon.repository.JobRepo;
+import edu.miu.cs.cs472.falcon.repository.LocationRepo;
 
 import java.util.List;
 
@@ -20,7 +21,4 @@ public class JobService {
         return jobRepo.getJobById(id);
     }
 
-    public static List<String> getCities(String search) {
-        return jobRepo.getCities(search);
-    }
 }

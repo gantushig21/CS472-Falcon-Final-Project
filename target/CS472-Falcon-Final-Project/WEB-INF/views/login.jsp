@@ -38,11 +38,11 @@ BLUE WRAP
 
         <form class="contact-form" role="form" action="login" method="POST" style="width: 350px">
             <div class="form-group">
-                <input type="name" name="username" class="form-control" id="username" placeholder="username" required pattern="" >
+                <input type="name" name="username" class="form-control" id="username" placeholder="username" required>
                 <div class="validate"></div>
             </div>
             <div class="form-group ">
-                <input type="password" name="password" class="form-control" id="password" placeholder="password" required pattern="">
+                <input type="password" name="password" class="form-control" id="password" placeholder="password" required>
                 <div class="validate"></div>
             </div>
 

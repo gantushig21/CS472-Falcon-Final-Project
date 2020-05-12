@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <link href="${pageContext.request.contextPath}/img/favicon.png" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/falcon.png" rel="icon">
     <link href="${pageContext.request.contextPath}/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -47,7 +47,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">JOB SEARCH</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/">JOB SEARCH</a>
         </div>
 
 
@@ -55,16 +55,16 @@
             <c:when test="${sessionScope.get('loggedUser')!=null}">
                 <div class="navbar-collapse collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="home">HOME</a></li>
-                        <li><a href="about">ABOUT</a></li>
-                        <li><a href="search">SEARCH</a></li>
+                        <li><a href="${pageContext.request.contextPath}/home">HOME</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about">ABOUT</a></li>
+                        <li><a href="${pageContext.request.contextPath}/jobs?action=add">POST JOB</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 Welcome ${sessionScope.get('loggedUser').firstName} ${sessionScope.get('loggedUser').lastName}
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="logout">LOGOUT</a></li>
+                                <li><a href="${pageContext.request.contextPath}/logout">LOGOUT</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -73,10 +73,10 @@
             <c:otherwise>
                 <div class="navbar-collapse collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="home">HOME</a></li>
-                        <li><a href="about">ABOUT</a></li>
-                        <li><a href="search">SEARCH</a></li>
-                        <li><a href="login">LOGIN</a></li>
+                        <li><a href="${pageContext.request.contextPath}/home">HOME</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about">ABOUT</a></li>
+                        <li><a href="${pageContext.request.contextPath}/jobs?action=add">POST JOB</a></li>
+                        <li><a href="${pageContext.request.contextPath}/login">LOGIN</a></li>
                     </ul>
                 </div>
             </c:otherwise>

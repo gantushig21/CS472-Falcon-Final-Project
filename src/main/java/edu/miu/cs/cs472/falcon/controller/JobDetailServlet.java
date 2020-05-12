@@ -28,3 +28,4 @@ public class JobDetailServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/views/job-detail.jsp").forward(request, response);
     }
 }
+
