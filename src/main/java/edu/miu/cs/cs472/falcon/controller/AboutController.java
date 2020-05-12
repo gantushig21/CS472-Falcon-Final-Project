@@ -7,14 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "HomeServlet",
-        urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "AboutController", urlPatterns = {"/about-us"})
+public class AboutController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/search-job.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/about-us.jsp").forward(request,response);
     }
 }

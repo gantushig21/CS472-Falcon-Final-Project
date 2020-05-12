@@ -26,9 +26,10 @@ public class RegisterController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String gender = request.getParameter("gender");
+        String phone = request.getParameter("phone");
         UserService userService = new UserService();
         try{
-            User user = new User(firstName, lastName, email, username, password, gender);
+            User user = new User(firstName, lastName, email, username, password, gender, phone);
             userService.registerUser(user);
             System.out.println(UserRepository.getUsers());
             response.sendRedirect("login");

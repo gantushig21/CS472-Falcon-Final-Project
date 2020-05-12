@@ -1,10 +1,5 @@
 package edu.miu.cs.cs472.falcon.filter;
 
-import edu.miu.cs.cs472.falcon.model.User;
-import edu.miu.cs.cs472.falcon.util.AppUtils;
-import edu.miu.cs.cs472.falcon.util.SecurityUtils;
-import edu.miu.cs.cs472.falcon.util.UserRoleRequestWrapper;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -16,31 +11,33 @@ import java.io.IOException;
 @WebFilter("/*")
 public class SecurityFilter implements Filter {
 
-
-
-    public void init(FilterConfig filterConfig) throws ServletException {
-
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {  }
     }
 
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        HttpServletResponse response= (HttpServletResponse) servletResponse;
-        String servletPath = request.getServletPath();
-        // User information stored in the Session. (After successful login).
-        User loggedUser = AppUtils.getLoggedUser(request.getSession());
-        if (servletPath.equals("/login")) {
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        HttpSession session = request.getSession();
+
+        String staticResourcesURI = request.getContextPath() + "/fragments";
+        String loginURI = request.getContextPath() + "/login";
+        String homeURI = request.getContextPath() + "/home";
+        String registerURI = request.getContextPath() + "/register";
+        String searchURI = request.getContextPath() + "/search";
+
+        boolean loggedIn = session != null && session.getAttribute("loggedUser") != null;
+        boolean loginRequest = request.getRequestURI().contains(loginURI)
+                || request.getRequestURI().contains(registerURI)
+                || request.getRequestURI().contains(searchURI)
+                || request.getRequestURI().contains(homeURI)
+                || request.getRequestURI().contains(staticResourcesURI);
+
+        if (loggedIn || loginRequest) {
             filterChain.doFilter(request, response);
-            return;
-        }
-        HttpServletRequest wrapRequest = request;
-
-        if (loggedUser != null) {
-            String userName = loggedUser.getUsername();
-            // Roles
-            String role = loggedUser.getRole();
-
-            // Wrap old request by a new Request with userName and Roles information.
-            wrapRequest = new UserRoleRequestWrapper(userName, role, request);
+        } else {
+            response.sendRedirect(homeURI);
         }
         // Pages must be signed in.
         if (SecurityUtils.isSecurityPage(request)) {
@@ -71,7 +68,7 @@ public class SecurityFilter implements Filter {
         filterChain.doFilter(wrapRequest, response);
     }
 
-
+    @Override
     public void destroy() {
 
     }
