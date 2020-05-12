@@ -29,61 +29,60 @@ BLUE WRAP
 	 ***************************************************************************************************************** -->
 
   <div class="container">
-    <div class="row">
-      <div class="col-lg-offset-3">
-        <h4>Register</h4>
-          <div class="error-msg">
-              <%= (request.getAttribute("errMsg")==null?' ':request.getAttribute("errMsg"))%>
-          </div>
-        <form class="contact-form" role="form" action="register" method="POST" style="width: 500px">
-            <div class="form-group">
-                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="firstName" required >
-                <div class="validate"></div>
-            </div>
-            <div class="form-group">
-                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="lastName" required>
-                <div class="validate"></div>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" class="form-control" id="email" placeholder="email" required>
-                <div class="validate"></div>
-            </div>
-            <div class="form-group">
-                <input type="text" name="username" class="form-control" id="username" placeholder="username" required pattern="" >
-              <div class="validate"></div>
-            </div>
-            <div class="form-group">
-              <input type="password" name="password" class="form-control" id="password" placeholder="password" required pattern="">
-              <div class="validate"></div>
-            </div>
-            <div class="form-group">
-                <input type="text" name="phone" class="form-control" id="phone" placeholder="phone" required pattern="">
-                <div class="validate"></div>
-            </div>
-            <div class="form-group">
-                <label>*Gender</label><br/>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="male" value="Male" <%= (request.getParameter("gender")!=null && request.getParameter("gender").equals("Male")?"checked":"")%> >
-                    <label class="form-check-label" >Male</label>
+      <div style="display: flex; justify-content: center; align-items: center;">
+          <div>
+            <h3>Register</h3>
+              <div class="error-msg">
+                  <%= (request.getAttribute("errMsg")==null?' ':request.getAttribute("errMsg"))%>
+              </div>
+            <form class="contact-form" role="form" action="register" method="POST" style="width: 500px">
+                <div class="form-group">
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="FirstName" required >
+                    <div class="validate"></div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="female" value="Female" <%= (request.getParameter("gender")!=null && request.getParameter("gender").equals("Female")?"checked":"")%> >
-                    <label class="form-check-label" >Female</label>
+                <div class="form-group">
+                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="LastName" required>
+                    <div class="validate"></div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+                    <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone Number" required>
+                    <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                    <label>*Gender</label><br/>
+                    <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="gender" id="male" value="Male" <%= (request.getParameter("gender")!=null && request.getParameter("gender").equals("Male")?"checked":"")%> >
+                        <label class="form-check-label" > Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="gender" id="female" value="Female" <%= (request.getParameter("gender")!=null && request.getParameter("gender").equals("Female")?"checked":"")%> >
+                        <label class="form-check-label" > Female</label>
+                    </div>
+                </div>
 
 
-            <div class="loading"></div>
-            <div class="error-message"></div>
-            <div class="sent-message"></div>
+                <div class="loading"></div>
+                <div class="error-message"></div>
+                <div class="sent-message"></div>
 
-            <div class="form-send">
-              <button type="submit" class="btn btn-large">Save</button>
-            </div>
+                <div class="form-send">
+                  <button type="submit" class="btn btn-large">Save</button>
+                </div>
 
-          </form><br/><br/>
+              </form><br/><br/>
       </div>
-
     </div>
   </div>
 
