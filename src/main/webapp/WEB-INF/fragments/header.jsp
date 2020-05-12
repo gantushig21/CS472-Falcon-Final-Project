@@ -58,11 +58,8 @@
                         <li><a href="${pageContext.request.contextPath}/home">HOME</a></li>
                         <li><a href="${pageContext.request.contextPath}/about">ABOUT</a></li>
                         <li><a href="${pageContext.request.contextPath}/jobs?action=add">POST JOB</a></li>
-                        <li class="dropdown">
-                            <a href="logout" class="dropdown-toggle" data-toggle="dropdown">
-                                Welcome ${sessionScope.get('loggedUser').firstName}
-                                    ${pageContext.request.contextPath}/logout">LOGOUT</a>
-                            </a>
+                        <li class="dropdown">Welcome ${sessionScope.get('loggedUser').firstName}
+                            <a href="${pageContext.request.contextPath}/logout">LOGOUT</a>
                         </li>
                     </ul>
                 </div>
