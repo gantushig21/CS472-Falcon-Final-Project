@@ -29,34 +29,35 @@ BLUE WRAP
 	 ***************************************************************************************************************** -->
 
   <div class="container">
-    <div class="row">
-      <div class="col-lg-offset-4">
-        <h4>Login</h4>
-          <div class="error-msg">
-              <%= (request.getAttribute("errMsg")==null?' ':request.getAttribute("errMsg"))%>
-          </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div>
+            <h3>Login</h3>
+              <div class="error-msg">
+                  <%= (request.getAttribute("errMsg")==null?' ':request.getAttribute("errMsg"))%>
+              </div>
 
-        <form class="contact-form" role="form" action="login" method="POST" style="width: 350px">
-            <div class="form-group">
-                <input type="name" name="username" class="form-control" id="username" placeholder="username" required>
-                <div class="validate"></div>
-            </div>
-            <div class="form-group ">
-                <input type="password" name="password" class="form-control" id="password" placeholder="password" required>
-                <div class="validate"></div>
-            </div>
+            <form class="contact-form" role="form" action="login" method="POST" style="width: 350px">
+                <div class="form-group">
+                    <input type="name" name="username" class="form-control" id="username" placeholder="username" required>
+                    <div class="validate"></div>
+                </div>
+                <div class="form-group ">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="password" required>
+                    <div class="validate"></div>
+                </div>
 
 
-            <div class="form-send" >
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button><br/>
-                <a href="register">Don't have an account. Create one now.</a>
-            </div>
+                <div class="form-send" >
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button><br/>
+                    <a href="register">Don't have an account. Create one now.</a>
+                </div>
 
-          </form><br/><br/>
-      </div>
-    <div class="container-fluid">
+            </form><br/><br/>
 
-    </div>
+                <div class="container-fluid">
+
+                </div>
+        </div>
     </div>
   </div>
 

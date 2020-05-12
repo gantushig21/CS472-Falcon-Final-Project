@@ -14,7 +14,6 @@ public class SecurityFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {  }
 
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -30,6 +29,7 @@ public class SecurityFilter implements Filter {
         String registerURI = request.getContextPath() + "/register";
         String aboutURI = request.getContextPath() + "/about";
         String searchURI = request.getContextPath() + "/search";
+        String jobsURI = request.getContextPath() + "/jobs";
 
         boolean loggedIn = session != null && session.getAttribute("loggedUser") != null;
         boolean loginRequest = request.getRequestURI().contains(loginURI)
@@ -41,14 +41,14 @@ public class SecurityFilter implements Filter {
                 || request.getRequestURI().contains(libURI)
                 || request.getRequestURI().contains(imgURI)
                 || request.getRequestURI().contains(aboutURI)
-                || request.getRequestURI().contains(staticResourcesURI);
+                || request.getRequestURI().contains(staticResourcesURI)
+                || request.getRequestURI().contains(jobsURI);
 
         if (loggedIn || loginRequest) {
             filterChain.doFilter(request, response);
         } else {
-            response.sendRedirect(homeURI);
+            response.sendRedirect(loginURI);
         }
-
     }
 
     @Override

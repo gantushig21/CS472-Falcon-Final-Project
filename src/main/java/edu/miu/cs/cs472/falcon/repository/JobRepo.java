@@ -4,12 +4,14 @@ import com.opencsv.CSVReader;
 import edu.miu.cs.cs472.falcon.model.Contact;
 import edu.miu.cs.cs472.falcon.model.Job;
 
+import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class JobRepo {
-    private static List<Job> jobs = new ArrayList<>();
+    private static LinkedList<Job> jobs = new LinkedList<>();
     private static HashMap<String, Job> jobMap = new HashMap<>();
 
     static {
@@ -31,7 +33,6 @@ public class JobRepo {
                                         j.getCompany().toLowerCase().indexOf(q) > -1) &&
                                         (j.getLocation().toLowerCase().indexOf(location) > -1);
                             })
-                            .sorted(Comparator.comparing(Job::getPostDate).reversed())
                             .collect(Collectors.toList());
 
         return list;
@@ -39,7 +40,11 @@ public class JobRepo {
 
     public static void readData() {
         try {
-            FileReader fileReader = new FileReader("/Users/gantushig/IdeaProjects/CS472-Falcon-Final-Project/src/main/resources/dice_com-job_us_sample.csv");
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            File file = new File(classLoader.getResource("dice_com-job_us_sample.csv").getFile());
+//            InputStream is = classLoader.getResourceAsStream();
+            FileReader fileReader = new FileReader(file);
+//            FileReader fileReader = new FileReader("/Users/gantushig/IdeaProjects/CS472-Falcon-Final-Project/src/main/resources/dice_com-job_us_sample.csv");
             CSVReader csvReader = new CSVReader(fileReader);
 
             String[] record;
@@ -59,7 +64,7 @@ public class JobRepo {
 
 
     public static void addJob(Job job) {
-        jobs.add(job);
+        jobs.addFirst(job);
         jobMap.put(job.getId(), job);
     }
 }
