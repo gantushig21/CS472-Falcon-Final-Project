@@ -31,7 +31,7 @@
                 <h4>Our Address</h4>
                 <div class="hline-w"></div>
                 <p>
-                    Some Ave, 987,<br/> 23890, New York,<br/> United States.<br/>
+                    1000 N 4th St, Fairfield,<br/> IA 52557,<br/> United States.<br/>
                 </p>
             </div>
 
@@ -39,15 +39,15 @@
     </div>
 </div>
 
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="lib/php-mail-form/validate.js"></script>
-<script src="lib/prettyphoto/js/prettyphoto.js"></script>
-<script src="lib/isotope/isotope.min.js"></script>
-<script src="lib/hover/hoverdir.js"></script>
-<script src="lib/hover/hoverex.min.js"></script>
+<script src="${pageContext.request.contextPath}/lib/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/lib/php-mail-form/validate.js"></script>
+<script src="${pageContext.request.contextPath}/lib/prettyphoto/js/prettyphoto.js"></script>
+<script src="${pageContext.request.contextPath}/lib/isotope/isotope.min.js"></script>
+<script src="${pageContext.request.contextPath}/lib/hover/hoverdir.js"></script>
+<script src="${pageContext.request.contextPath}/lib/hover/hoverex.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/js/main.js"></script>
 
 </body>
 </html>
