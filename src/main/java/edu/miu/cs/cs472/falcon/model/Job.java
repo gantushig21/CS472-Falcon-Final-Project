@@ -1,29 +1,32 @@
 package edu.miu.cs.cs472.falcon.model;
 
+import edu.miu.cs.cs472.falcon.utils.FactoryMethod;
+
 import java.util.Date;
 
 public class Job {
-    private static int uniqueId = 0;
-    private int id;
+    private String id;
     private String company = null;
     private String status = null;
     private String description = null;
+    private String location = null;
+    private String title = null;
     private Date postDate = null;
     private String shift = null;
     private String skills = null;
-    private String location = null;
-    private String title = null;
+    private Contact contact = null;
 
-    public Job(String company, String status, String description, Date postDate, String shift, String skills, String location, String title) {
-        this.id = (++uniqueId);
+    public Job(String company, String status, String description, String location, String title, Date postDate, String shift, String skills, Contact contact) {
+        this.id = FactoryMethod.getUniqueId();
         this.company = company;
         this.status = status;
         this.description = description;
+        this.location = location;
+        this.title = title;
         this.postDate = postDate;
         this.shift = shift;
         this.skills = skills;
-        this.location = location;
-        this.title = title;
+        this.contact = contact;
     }
 
     public String getLocation() {
@@ -42,7 +45,7 @@ public class Job {
         this.title = title;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -92,5 +95,29 @@ public class Job {
 
     public void setSkills(String skills) {
         this.skills = skills;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "id=" + id +
+                ", company='" + company + '\'' +
+                ", status='" + status + '\'' +
+                ", description='" + description + '\'' +
+                ", location='" + location + '\'' +
+                ", title='" + title + '\'' +
+                ", postDate=" + postDate +
+                ", shift='" + shift + '\'' +
+                ", skills='" + skills + '\'' +
+                ", contact=" + contact +
+                '}';
     }
 }

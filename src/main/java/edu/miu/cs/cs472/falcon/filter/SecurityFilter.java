@@ -13,6 +13,7 @@ public class SecurityFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {  }
+    }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -47,7 +48,33 @@ public class SecurityFilter implements Filter {
         } else {
             response.sendRedirect(homeURI);
         }
+        // Pages must be signed in.
+        if (SecurityUtils.isSecurityPage(request)) {
 
+            // If the user is not logged in, Redirect to the login page.
+            if (loggedUser == null) {
+                String requestUri = request.getRequestURI();
+
+                // Store the current page to redirect to after successful login.
+                int redirectId = AppUtils.storeRedirectAfterLoginUrl(request.getSession(), requestUri);
+
+                response.sendRedirect(wrapRequest.getContextPath() + "/login?redirectId=" + redirectId);
+                return;
+            }
+
+            // Check if the user has a valid role?
+            boolean hasPermission = SecurityUtils.hasPermission(wrapRequest);
+            if (!hasPermission) {
+
+                RequestDispatcher dispatcher //
+                        = request.getServletContext().getRequestDispatcher("login");
+
+                dispatcher.forward(request, response);
+                return;
+            }
+        }
+
+        filterChain.doFilter(wrapRequest, response);
     }
 
     @Override

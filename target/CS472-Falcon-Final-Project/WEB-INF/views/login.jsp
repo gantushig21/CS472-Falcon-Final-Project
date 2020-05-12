@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="../fragments/header.jsp">
-  <c:param name="title" value="login Page" />
+    <c:param name="title" value="login Page" />
 </c:import>
 
 <!-- *****************************************************************************************************************
@@ -35,16 +35,14 @@ BLUE WRAP
           <div class="error-msg">
               <%= (request.getAttribute("errMsg")==null?' ':request.getAttribute("errMsg"))%>
           </div>
-          <div>
-              <%= (session.getAttribute("loggedUser")==null?' ':session.getAttribute("loggedUser"))%>
-          </div>
+
         <form class="contact-form" role="form" action="login" method="POST" style="width: 350px">
             <div class="form-group">
-                <input type="name" name="username" class="form-control" id="username" placeholder="username" required pattern="" >
+                <input type="name" name="username" class="form-control" id="username" placeholder="username" required>
                 <div class="validate"></div>
             </div>
-            <div class="form-group">
-                <input type="password" name="password" class="form-control" id="password" placeholder="password" required pattern="">
+            <div class="form-group ">
+                <input type="password" name="password" class="form-control" id="password" placeholder="password" required>
                 <div class="validate"></div>
             </div>
 
