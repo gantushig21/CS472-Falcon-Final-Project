@@ -21,7 +21,6 @@
                 <div class="hline-w"></div>
                 <p>
                     <a href="https://github.com/gantushig21/CS472-Falcon-Final-Project"><i class="fa fa-github"></i></a>
-                    <a href="#"><i class="fa fa-github"></i></a>
                     <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-tumblr"></i></a>
