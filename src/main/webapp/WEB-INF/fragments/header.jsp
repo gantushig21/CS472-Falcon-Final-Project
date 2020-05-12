@@ -59,9 +59,8 @@
                         <li><a href="${pageContext.request.contextPath}/about">ABOUT</a></li>
                         <li><a href="${pageContext.request.contextPath}/posts">POST JOB</a></li>
                         <li class="dropdown">
-                            <a href="logout" class="dropdown-toggle" data-toggle="dropdown">
-                                Welcome ${sessionScope.get('loggedUser').firstName}
-                                    ${pageContext.request.contextPath}/logout">LOGOUT</a>
+                            <a href="${pageContext.request.contextPath}/logout" class="dropdown-toggle" data-toggle="dropdown">
+                                Welcome ${sessionScope.get('loggedUser').firstName}, LOGOUT</a>
                             </a>
                         </li>
                     </ul>

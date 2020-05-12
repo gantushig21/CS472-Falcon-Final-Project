@@ -63,7 +63,9 @@ public class PostServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Contact contact = new Contact("Tony Stark", "(202) 555-1234", "stark@gmail.com");
+        User user = AppUtils.getLoggedUser(request.getSession());
+
+        Contact contact = new Contact(user.getFirstName() + " " + user.getLastName(), user.getPhone(), user.getEmail());
         request.setAttribute("contact", contact);
         request.getRequestDispatcher("/WEB-INF/views/add-job.jsp").forward(request, response);
     }
