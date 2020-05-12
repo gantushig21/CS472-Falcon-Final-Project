@@ -11,18 +11,28 @@ public class User {
     private String password;
     private String gender;
     private String role;
+    private String phone;
 
     public User(){}
 
-    public User(String firstName, String lastName, String email, String username, String password, String gender) {
-        this.userId = this.getUserId()+1;
+    public User(String firstName, String lastName, String email, String username, String password, String gender, String phone) {
+        this.setUserId(++userId);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
         this.gender = gender;
+        this.phone = phone;
         this.setRole("ROLE_USER");
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public int getUserId() {
@@ -107,8 +117,9 @@ public class User {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        sb.append(getUserId()+", "+getFirstName()+ ", "+ getLastName()+", "+ getEmail()+", "+getGender());
-        sb.append("]");
+        sb.append(getFirstName()+ ", "+ getLastName()+", " + getEmail()+", "+
+                getGender() + ", "+ getUsername()+ ", "+getPassword() + ", "+ getPhone());
+        sb.append("]\n");
         return sb.toString();
     }
 
