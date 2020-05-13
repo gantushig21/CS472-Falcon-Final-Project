@@ -29,8 +29,8 @@ LOGIN FORMS
 ***************************************************************************************************************** -->
 
 <div class="container mtb">
-    <div class="row">
-        <div class="col-lg-offset-3" style="width: 500px">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; max-width: 500px;">
             <h4>Register</h4>
             <div class="hline" style="margin-bottom: 20px;"></div>
             <div class="error-msg">
@@ -67,7 +67,7 @@ LOGIN FORMS
                         <div class="job-radio-btn">
                             <input class="form-check-input" type="radio" name="gender" id="male" required
                                    value="Male" <%= (request.getParameter("gender")!=null && request.getParameter("gender").equals("Male")?"checked":"")%> >
-                            <label class="form-check-label">Male</label>
+                            <label clas s="form-check-label">Male</label>
 
                         </div>
                         <div class="job-radio-btn">
