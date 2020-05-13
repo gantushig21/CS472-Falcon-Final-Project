@@ -29,8 +29,8 @@ LOGIN FORMS
 ***************************************************************************************************************** -->
 
 <div class="container mtb">
-    <div class="row">
-        <div class="col-lg-offset-4" style="width: 350px">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; max-width: 350px;">
             <h4>Login</h4>
             <div class="hline" style="margin-bottom: 20px;"></div>
             <div class="error-msg">
