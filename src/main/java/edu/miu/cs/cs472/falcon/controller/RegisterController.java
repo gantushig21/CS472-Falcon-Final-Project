@@ -37,7 +37,10 @@ public class RegisterController extends HttpServlet {
             }else {
                 userService.registerUser(user);
                 System.out.println(UserRepository.getUsers());
-                response.sendRedirect("login");
+                request.setAttribute("msg", "<div style='color:blue;font-size:1em; height:250px'> " +
+                        "Registered successfully.</div>");
+                request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request, response);
+                //response.sendRedirect("login");
             }
         }catch (Exception e){
             e.printStackTrace();
