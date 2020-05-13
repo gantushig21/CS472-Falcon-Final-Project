@@ -32,7 +32,10 @@ public class UserRepository {
     public static boolean isExistingUser(User user) {
         try {
             for (User current : UserRepository.getUsers()) {
-                if (user.getEmail().equals(current.getEmail()) || user.getPhone().equals(current.getPhone())) {
+                if (user.getEmail().equals(current.getEmail())
+                        || user.getPhone().equals(current.getPhone())
+                        || user.getUsername().equals(current.getUsername())
+                ){
                     return true;
                 }
             }

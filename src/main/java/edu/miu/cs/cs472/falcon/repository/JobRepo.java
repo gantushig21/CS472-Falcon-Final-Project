@@ -40,11 +40,14 @@ public class JobRepo {
 
     public static void readData() {
         try {
-            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-            File file = new File(classLoader.getResource("dice_com-job_us_sample.csv").getFile());
+           // ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+           // File file = new File(classLoader.getResource("dice_com-job_us_sample.csv").getFile());
 //            InputStream is = classLoader.getResourceAsStream();
-            FileReader fileReader = new FileReader(file);
+           // FileReader fileReader = new FileReader(file);
 //            FileReader fileReader = new FileReader("/Users/gantushig/IdeaProjects/CS472-Falcon-Final-Project/src/main/resources/dice_com-job_us_sample.csv");
+           // CSVReader csvReader = new CSVReader(fileReader);
+
+            FileReader fileReader = new FileReader("C:/dice_com-job_us_sample.csv");
             CSVReader csvReader = new CSVReader(fileReader);
 
             String[] record;

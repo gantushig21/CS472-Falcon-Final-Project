@@ -31,7 +31,7 @@
                 <p><b>Position:</b> ${job.title}</p>
                 <p><b>Status:</b> ${job.status}</p>
                 <p><b>Skills:</b> ${job.skills}</p>
-                <p><b>Website:</b> <a href="http://example.com">http://example.com</a></p>
+             <!--   <p><b>Website:</b> <a href="http://example.com">http://example.com</a></p> -->
                 <div class="spacing"></div>
                 <h4>Contact</h4>
                 <div class="hline"></div>

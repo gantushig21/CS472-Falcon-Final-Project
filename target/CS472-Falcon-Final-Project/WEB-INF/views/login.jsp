@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="../fragments/header.jsp">
-    <c:param name="title" value="login Page"/>
+    <c:param name="title" value="Login Page"/>
 </c:import>
 
 <!-- *****************************************************************************************************************

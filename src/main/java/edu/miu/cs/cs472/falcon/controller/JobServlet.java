@@ -49,6 +49,7 @@ public class JobServlet extends HttpServlet {
                 int page = Integer.parseInt(pageString);
                 int limit = Integer.parseInt(limitString);
                 int totalPage = jobs.size() % limit != 0 ? jobs.size() / limit + 1 : jobs.size() / limit;
+                System.out.println("total page: "+totalPage);
                 request.setAttribute("activePage", page);
                 request.setAttribute("page", totalPage);
                 request.setAttribute("limit", limit);
