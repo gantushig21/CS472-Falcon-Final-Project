@@ -12,26 +12,7 @@
     <c:param name="title" value="Home Page" />
 </c:import>
 
-<!-- *****************************************************************************************************************
-BLUE WRAP
-***************************************************************************************************************** -->
-<div id="blue">
-    <div class="container">
-        <div class="row">
-            <h3>About Us.</h3>
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /blue -->
-
-
-<!-- *****************************************************************************************************************
-AGENCY ABOUT
-***************************************************************************************************************** -->
-
-<div class="container mtb">
+<div class="container mtb" style="padding-top: 50px;">
     <div class="row">
         <div class="col-lg-6">
             <img class="img-responsive" src="img/agency.jpg" alt="">
@@ -55,7 +36,7 @@ AGENCY ABOUT
             <h4>Team Source Code in Github</h4>
             <p> <a href="https://github.com/gantushig21/CS472-Falcon-Final-Project">Git project link</a>
             </p>
-            <p><br/><a href="contact.html" class="btn btn-theme">Contact Us</a></p>
+<%--            <p><br/><a href="contact.html" class="btn btn-theme">Contact Us</a></p>--%>
         </div>
     </div>
 </div>

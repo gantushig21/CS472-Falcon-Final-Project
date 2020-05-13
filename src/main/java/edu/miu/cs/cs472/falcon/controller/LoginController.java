@@ -2,7 +2,7 @@ package edu.miu.cs.cs472.falcon.controller;
 
 import edu.miu.cs.cs472.falcon.model.User;
 import edu.miu.cs.cs472.falcon.service.LoginService;
-import edu.miu.cs.cs472.falcon.util.AppUtils;
+import edu.miu.cs.cs472.falcon.utils.AppUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
             User user = loginService.getUserByUserName(userName);
             System.out.println(user.getRole());
             AppUtils.storeLoggedUser(session, user);
-            response.sendRedirect("users");
+            response.sendRedirect("home");
         } else {
             String errorMessage = "<span style='color:red;font-size:1em'> Invalid UserName/Password !!!</span>";
             request.setAttribute("errMsg", errorMessage);
