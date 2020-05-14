@@ -1,1 +1,1 @@
-cs472 WAP Project - Web Search 
+cs472 WAP Project - Job Search 
